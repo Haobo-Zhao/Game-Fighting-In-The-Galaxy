@@ -7,11 +7,16 @@ class Scene {
 
     addElement(e) {
         // e 是一个 JoeImage
+        // 让 e 能够访问到所在的 scene
+        e.scene = this
         this.elements.push(e)
     }
 
     update() {
-
+        for (let i = 0; i < this.elements.length; i++) {
+            let e = this.elements[i]
+            e.update()
+        }
     }
 
     draw() {
