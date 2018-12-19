@@ -1,26 +1,20 @@
-var Player = function (game) {
-    var image = game.images['player']
-    var o = {
-        image: image,
-        x: 220,
-        y: 200,
-        w: image.width,
-        h: image.height,
-        speed: 10,
+class Player extends JoeImage {
+    constructor(game) {
+        // super 里面默认 x y 都是 0
+        super(game, 'player')
+        this.speed = 10
     }
 
-    o.moveLeft = function () {
-        o.x -= o.speed
+    moveLeft() {
+        this.x -= this.speed
     }
-    o.moveRight = function () {
-        o.x += o.speed
+    moveRight() {
+        this.x += this.speed
     }
-    o.moveUp = function () {
-        o.y -= o.speed
+    moveUp() {
+        this.y -= this.speed
     }
-    o.moveDown = function () {
-        o.y += o.speed
+    moveDown() {
+        this.y += this.speed
     }
-
-    return o
 }
