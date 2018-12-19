@@ -82,7 +82,8 @@ class Game {
     }
 
     drawImage(element) {
-        this.context.drawImage(element.image, element.x, element.y)
+        // element 是一个 JoeImage
+        this.context.drawImage(element.texture, element.x, element.y)
     }
 
     registerAction(key, callback) {

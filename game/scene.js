@@ -2,6 +2,12 @@
 class Scene {
     constructor(game) {
         this.game = game
+        this.elements = []
+    }
+
+    addElement(e) {
+        // e 是一个 JoeImage
+        this.elements.push(e)
     }
 
     update() {
@@ -9,7 +15,10 @@ class Scene {
     }
 
     draw() {
-        
+        for (let i = 0; i < this.elements.length; i++) {
+            var e = this.elements[i]
+            this.game.drawImage(e)
+        }
     }
 
     // 单例

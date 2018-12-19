@@ -1,4 +1,4 @@
-class Image {
+class JoeImage {
     constructor(game, name) {
         this.texture = game.imageByName(name)
         this.x = 0
