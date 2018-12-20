@@ -42,7 +42,10 @@ class Scene {
     draw() {
         for (let i = 0; i < this.elements.length; i++) {
             var e = this.elements[i]
-            this.game.drawImage(e)
+            // 这里又多用了一层抽象，调用元素自己的 draw 函数，
+            // 至于每一个元素的 draw 函数的具体是怎么实现的，不关心啦！
+            // this.game.drawImage(e)
+            e.draw()
         }
     }
 

@@ -1,6 +1,6 @@
 class Comet extends JoeImage {
     constructor(game) {
-        super(game, 'comet')
+        super(game, 'comet' + randomBetween(1, 2))
         this.setup()
     }
 
@@ -19,6 +19,9 @@ class Comet extends JoeImage {
         this.x += this.speed
         this.y += this.speed
         if (this.x > this.game.canvas.width && this.y > this.game.canvas.height) {
+            this.texture = this.game.imageByName('comet' + randomBetween(1, 2))
+            this.w = this.texture.width
+            this.h = this.texture.height
             this.setup()
         }
     }

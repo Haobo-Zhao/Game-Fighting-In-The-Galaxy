@@ -17,6 +17,10 @@ class JoeImage {
 
     }
 
+    draw() {
+        this.game.drawImage(this)
+    }
+
     debug() {
         
     }

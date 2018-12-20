@@ -8,7 +8,8 @@ var __main = function () {
         enemy2: 'img/enemy2.png',
         enemy3: 'img/enemy3.png',
         bullet: 'img/bullet.png',
-        comet: 'img/comet.png',
+        comet1: 'img/comet1.png',
+        comet2: 'img/comet2.png',
         galaxy: 'img/galaxy.png',
     }
 
