@@ -16,4 +16,8 @@ class JoeImage {
     update() {
 
     }
+
+    debug() {
+        
+    }
 }

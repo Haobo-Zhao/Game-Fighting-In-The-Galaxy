@@ -22,4 +22,8 @@ class Comet extends JoeImage {
             this.setup()
         }
     }
+
+    debug() {
+        this.speed = config.comet_speed
+    }
 }

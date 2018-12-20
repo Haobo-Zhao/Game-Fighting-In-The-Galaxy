@@ -11,12 +11,13 @@
             border: 1px solid #000000;
         }
     </style>
+    <script src="game/config.js"></script>
 
     <script src="game/utils.js"></script>
     <script src="game/game.js"></script>
     <script src="game/scene.js"></script>
     <script src="game/joe_image.js"></script>
-    
+
     <script src="scene/gaming/scene_gaming.js"></script>
     <script src="scene/gaming/player.js"></script>
     <script src="scene/gaming/sky.js"></script>
@@ -32,9 +33,70 @@
 <body>
     <canvas id="id-canvas"></canvas>
     <hr>
-    <input id="id-fps" type="range" value="60" min="1" max="120" hidden>
+    <div id="id-debug-panel" style="display: none">
+        <div>
+            <input class="joe-config-item" data-item="config.fps" type="range" value="60" min="1" max="120">
+            <span>FPS:</span>
+            <span class="joe-label">60</span>
+        </div>
+        <div>
+            <input class="joe-config-item" data-item="config.galaxy_speed" type="range" value="1" min="-10" max="10">
+            <span>Galaxy Speed:</span>
+            <span class="joe-label">1</span>
+        </div>
+        <div>
+            <input class="joe-config-item" data-item="config.comet_speed" type="range" value="3" min="1" max="10">
+            <span>Comet Speed:</span>
+            <span class="joe-label">3</span>
+        </div>
+        <div>
+            <input class="joe-config-item" data-item="config.player_speed" type="range" value="6" min="1" max="20">
+            <span>Player Speed:</span>
+            <span class="joe-label">6</span>
+        </div>
+        <div>
+            <input class="joe-config-item" data-item="config.additional_enemy_speed" type="range" value="0" min="-5"
+                max="5" step="0.5">
+            <span>Enemies' Additional Speed:</span>
+            <span class="joe-label">0</span>
+        </div>
+        <div>
+            <input class="joe-config-item" data-item="config.bullet_speed" type="range" value="15" min="0" max="25">
+            <span>Bullet Speed:</span>
+            <span class="joe-label">15</span>
+        </div>
+        <div>
+            <input class="joe-config-item" data-item="config.cooldown" type="range" value="10" min="0" max="20">
+            <span>Cooldown:</span>
+            <span class="joe-label">10</span>
+        </div>
+    </div>
 </body>
 
+<script>
+    var el = (selector) => document.querySelectorAll(selector)
+
+    var bindAll = (selector, event, callback) => {
+        var elements = el(selector)
+        for (let i = 0; i < elements.length; i++) {
+            var element = elements[i]
+            element.addEventListener(event, (e) => {
+                callback(e)
+            })
+        }
+    }
+
+    bindAll('.joe-config-item', 'input', (event) => {
+        var target = event.target
+        var item = target.dataset.item
+        var value = target.value
+        eval(item + '=' + value)
+
+        var parentDiv = target.closest('div')
+        var label = parentDiv.querySelector('.joe-label')
+        label.innerText = value
+    })
+</script>
 <script src="main.js"></script>
 
 </html>

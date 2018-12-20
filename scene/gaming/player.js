@@ -6,6 +6,8 @@ class Player extends JoeImage {
     }
 
     setup() {
+        this.x = 300 - this.w / 2
+        this.y = 800 - this.h - 20
         this.speed = 10
         this.cooldown = 0
     }
@@ -25,10 +27,15 @@ class Player extends JoeImage {
 
     fire() {
         if (this.cooldown === 0) {
-            this.cooldown = 5
+            this.cooldown = 10
+            // 这里的子弹冷却时间如果加在 debug 里面，会因为 debug 在 update 之前先执行
+            if (this.scene.debugModeEnabled) {
+                this.cooldown = config.cooldown
+            }
             var b = Bullet.new(this.game)
+            // 射出子弹的位置
             b.x = this.w / 2 + this.x
-            b.y = this.y
+            b.y = this.y + 2
             this.scene.addElement(b)
         }
     }
@@ -38,5 +45,9 @@ class Player extends JoeImage {
         if (this.cooldown < 0) {
             this.cooldown = 0
         }
+    }
+
+    debug() {
+        this.speed = config.player_speed
     }
 }

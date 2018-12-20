@@ -14,7 +14,7 @@ class Game {
         // 这个 callback 会在 load 函数被调用之后，图片都加载好之后，被调用
         this.callback = callback
 
-        window.fps = 60
+        window.paused = false
 
         this.canvas = document.querySelector('#id-canvas')
         this.context = this.canvas.getContext('2d')
@@ -122,7 +122,7 @@ class Game {
         this.update && this.draw()
 
         // 在构造函数里面，已经把 this.updateAndDraw 绑定到对象本身来了
-        window.setTimeout(this.updateAndDraw, 1000 / window.fps)
+        window.setTimeout(this.updateAndDraw, 1000 / this.scene.fps)
     }
 
     // 从一个场景开始跑整个程序

@@ -10,7 +10,7 @@ class Galaxy extends JoeImage {
     }
 
     setup() {
-        this.x = randomBetween(-200, 700)
+        this.x = randomBetween(-200, 200)
         this.y = - randomBetween(700, 950)
         this.speed = 1
     }
@@ -20,5 +20,9 @@ class Galaxy extends JoeImage {
         if (this.y > this.game.canvas.height) {
             this.setup()
         }
+    }
+
+    debug() {
+        this.speed = config.galaxy_speed
     }
 }
