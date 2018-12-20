@@ -1,10 +1,10 @@
-var Sky = function (game) {
-    var image = game.images['sky']
-    var o = {
-        image: image,
-        x: 0,
-        y:0,
+class Sky extends JoeImage {
+    constructor(game) {
+        super(game, 'sky')
     }
 
-    return o
+    static new(game) {
+        var i = new this(game)
+        return i
+    }
 }

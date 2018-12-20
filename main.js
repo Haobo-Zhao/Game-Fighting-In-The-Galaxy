@@ -1,13 +1,15 @@
 // 启动游戏
 var __main = function () {
     var images = {
-        sky: 'img/sky.jpg',
+        sky: 'img/sky.png',
         player: 'img/player.png',
         bullet: 'img/bullet.png',
         enemy1: 'img/enemy1.png',
         enemy2: 'img/enemy2.png',
         enemy3: 'img/enemy3.png',
         bullet: 'img/bullet.png',
+        comet: 'img/comet.png',
+        galaxy: 'img/galaxy.png',
     }
 
     var game = Game.instance(images, (g) => {

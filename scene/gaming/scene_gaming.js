@@ -7,17 +7,26 @@ class Scene_gaming extends Scene {
     }
 
     setup() {
-        this.sky = JoeImage.new(this.game, 'sky')
+        this.sky = Sky.new(this.game)
+        this.galaxy = Galaxy.new(this.game)
+        this.comet = Comet.new(this.game)
         this.player = new Player(this.game)
         this.player.x = 100
         this.player.y = 100
-        
+
         // 背景图总是优先放，不然会覆盖其他的图
         this.addElement(this.sky)
-        
+
+        // 星系
+        this.addElement(this.galaxy)
+
+        // 彗星
+        this.addElement(this.comet)
+
+        // 敌机
         this.numberOfEnemies = 10
         this.addEnemies()
-        
+
         this.addElement(this.player)
     }
 
@@ -49,7 +58,7 @@ class Scene_gaming extends Scene {
         this.game.registerAction('d', function () {
             s.player.moveRight()
         })
-        this.game.registerAction(' ', function() {
+        this.game.registerAction(' ', function () {
             s.player.fire()
         })
     }
