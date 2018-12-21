@@ -22,6 +22,11 @@ class Scene {
         this.elements.push(e)
     }
 
+    removeElement(e) {
+        var i = this.elements.indexOf(e)
+        this.elements.splice(i, 1)
+    }
+
     update() {
         // 如果允许 debug 模式
         if (this.debugModeEnabled) {

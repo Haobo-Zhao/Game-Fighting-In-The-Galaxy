@@ -11,10 +11,12 @@ var __main = function () {
         comet1: 'img/comet1.png',
         comet2: 'img/comet2.png',
         galaxy: 'img/galaxy.png',
+        particle: 'img/particle.png',
     }
 
     var game = Game.instance(images, (g) => {
-        var scene = Scene_gaming.new(g)
+        // var scene = Scene_gaming.new(g)
+        var scene = Scene_title.new(g)
         g.runWithScene(scene)
     })
 
