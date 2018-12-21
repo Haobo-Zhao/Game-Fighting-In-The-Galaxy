@@ -9,7 +9,7 @@ class ParticleSystem {
     }
 
     setup(x, y) {
-        this.duration = 30
+        this.duration = 60
         this.x = x || 100
         this.y = y || 100
         this.numberOfParticles = 60
@@ -18,6 +18,13 @@ class ParticleSystem {
 
     update() {
         this.duration--
+        // 一旦 remove 之后，粒子系统就不在 scene 的 elements 数组里面了，
+        // 所以 粒子系统 的 update 和 draw 就不会再被调用了
+        if (this.duration <= 0) {
+            this.scene.removeElement(this)
+            return
+        }
+
         // 更新一次，也就是每一帧，加一个火花进来
         var l = this.particles.length
         var n = this.numberOfParticles
@@ -46,10 +53,8 @@ class ParticleSystem {
 
 
     draw() {
-        // 一旦 remove 之后，粒子系统就不在 scene 的 elements 数组里面了，
-        // 所以 粒子系统 的 update 和 draw 就不会再被调用了
+        // 没有生命值之后，不画
         if (this.duration <= 0) {
-            this.scene.removeElement(this)
             return
         }
 

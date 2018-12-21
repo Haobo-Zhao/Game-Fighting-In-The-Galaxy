@@ -1,24 +1,24 @@
 class Animation {
     constructor(game, name) {
         this.game = game
-        // this.textures 里面装的是 
+        // this.textures 里面装的是一个 HTMLImageElement，就是可以直接画出来的东西
         this.textures = []
         for (let i = 0; i <= 9; i++) {
-            // let animationName = name + i
-            let animationName = `${name}${i}`
-            let frame = game.imageByName(animationName)
-            this.textures.push(frame)
+            let animationName = name + i
+            let texture = game.imageByName(animationName)
+            this.textures.push(texture)
         }
-        this.setup()
+        
+        this.init()
     }
 
     static new(game, name) {
         return new this(game, name)
     }
 
-    setup() {
-        this.x = 100
-        this.y = 20
+    init() {
+        this.x = 300
+        this.y = 200
         this.cooldown = 3
         this.textureIndex = 0
         this.texture = this.textures[0]
