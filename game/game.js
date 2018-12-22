@@ -22,7 +22,7 @@ class Game {
         this.canvas.width = 600
         this.canvas.height = 800
 
-        this.keydowns = {}
+        this.keys = {}
         this.actions = {}
 
         // 先把 scene 定义出来，然后在 scene 传进来的时候，用 this.setScene 绑定上
@@ -46,12 +46,12 @@ class Game {
     init() {
         // 有方向键被按下
         window.addEventListener('keydown', (event) => {
-            this.keydowns[event.key] = true
+            this.keys[event.key] = 'down'
         })
 
         // 方向键松开
         window.addEventListener('keyup', (event) => {
-            this.keydowns[event.key] = false
+            this.keys[event.key] = 'up'
         })
     }
 
@@ -60,6 +60,7 @@ class Game {
     }
 
     // 加载图片的函数
+    // 整个程序在所有图片加载完成之后，才开始跑
     load() {
         var namesOfResources = Object.keys(this.resources)
         var loaded = 0;
@@ -106,9 +107,17 @@ class Game {
 
     updateAndDraw() {
         // 执行当前事件数组 actions 里面，被按下键对应的事件
+        // 注意，是从 actions 里面取，而不是从 keys 里面取，
+        // 因为只关心有哪些键可以有动作
         for (var key in this.actions) {
-            if (this.keydowns[key]) {
-                this.actions[key]()
+            var keyStatus = this.keys[key]
+            if (keyStatus === 'down') {
+                this.actions[key]('down')
+            } else if (keyStatus === 'up') {
+                // 消掉这个松开按键的状态，不然的话，会一直执行松开按键触发的函数
+                this.keys[key] = null
+                
+                this.actions[key]('up')
             }
         }
 
