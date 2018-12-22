@@ -31,6 +31,10 @@ class Ninja {
     }
 
     update() {
+        if (this.game.keydowns['a'] === false && this.game.keydowns['d'] === false) {
+            this.status = 'idle'
+            this.setAnimation()
+        }
         this.animation.update()
     }
 
