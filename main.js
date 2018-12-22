@@ -23,6 +23,17 @@ var __main = function () {
         idle7: 'animation/idle/idle7.png',
         idle8: 'animation/idle/idle8.png',
         idle9: 'animation/idle/idle9.png',
+
+        run0: 'animation/run/run0.png',
+        run1: 'animation/run/run1.png',
+        run2: 'animation/run/run2.png',
+        run3: 'animation/run/run3.png',
+        run4: 'animation/run/run4.png',
+        run5: 'animation/run/run5.png',
+        run6: 'animation/run/run6.png',
+        run7: 'animation/run/run7.png',
+        run8: 'animation/run/run8.png',
+        run9: 'animation/run/run9.png',
     }
 
     var game = Game.instance(images, (g) => {

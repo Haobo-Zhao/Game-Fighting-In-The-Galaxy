@@ -17,11 +17,15 @@ class Animation {
     }
 
     init() {
-        this.x = 300
+        this.x = 200
         this.y = 200
         this.cooldown = 3
         this.textureIndex = 0
         this.texture = this.textures[0]
+    }
+
+    move(dx) {
+        this.x += dx
     }
 
     update() {
