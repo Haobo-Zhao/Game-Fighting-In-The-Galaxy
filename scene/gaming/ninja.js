@@ -31,7 +31,7 @@ class Ninja {
     }
 
     update() {
-        if (this.game.keydowns['a'] === false && this.game.keydowns['d'] === false) {
+        if (this.game.keydowns['a'] !== true && this.game.keydowns['d'] !== true) {
             this.status = 'idle'
             this.setAnimation()
         }
@@ -39,6 +39,10 @@ class Ninja {
     }
 
     draw() {
+        if (this.direction === 'left') {
+            this.animation.drawLeftwards()
+            return
+        }
         this.animation.draw()
     }
 

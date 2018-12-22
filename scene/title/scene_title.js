@@ -13,11 +13,14 @@ class Scene_title extends Scene {
 
     setupInputs() {
         var self = this
-        this.game.registerAction('a', function() {
-            self.ninja.move(-10)
+        var ninja = this.ninja
+        this.game.registerAction('a', function () {
+            ninja.direction = 'left'
+            self.ninja.move(-30)
         })
-        this.game.registerAction('d', function() {
-            self.ninja.move(10)
+        this.game.registerAction('d', function () {
+            ninja.direction = 'right'
+            self.ninja.move(30)
         })
     }
 }

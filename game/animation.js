@@ -17,11 +17,13 @@ class Animation {
     }
 
     init() {
-        this.x = 200
-        this.y = 200
         this.cooldown = 3
         this.textureIndex = 0
         this.texture = this.textures[0]
+        this.x = 200
+        this.y = 200
+        this.w = this.texture.width
+        this.h = this.texture.height
     }
 
     move(dx) {
@@ -39,6 +41,15 @@ class Animation {
 
     draw() {
         this.game.drawImage(this)
+    }
+
+    drawLeftwards() {
+        var context = this.game.context
+        context.save()
+        context.translate(this.x + this.w + this.x, 0)
+        context.scale(-1, 1)
+        this.draw()
+        context.restore()
     }
 
     getFrame() {
