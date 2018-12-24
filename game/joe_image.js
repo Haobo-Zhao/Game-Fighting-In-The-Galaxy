@@ -13,10 +13,12 @@ class JoeImage {
         return i
     }
 
+    // 控制行为
     update() {
 
     }
 
+    // 展示层 presentation layer
     draw() {
         this.game.drawImage(this)
     }
