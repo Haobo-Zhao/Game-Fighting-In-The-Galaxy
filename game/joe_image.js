@@ -21,6 +21,7 @@ class JoeImage {
         this.game.drawImage(this)
     }
 
+    // invoked when in debug mode
     debug() {
         
     }
