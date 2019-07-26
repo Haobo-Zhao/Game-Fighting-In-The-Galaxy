@@ -9,8 +9,8 @@ class SceneGaming extends Scene {
 
         const g = this.game
         this.bg = Element.new(g, 'bg', 0, 0)
-        this.player = Player.new(g, 100, 200)
-        log('player', this.player)
+        this.player = Player.new(g, 300, 900)
+
         this.addElement(this.bg)
         this.addElement(this.player)
     }

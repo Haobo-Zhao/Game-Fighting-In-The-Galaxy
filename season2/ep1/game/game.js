@@ -150,7 +150,12 @@ const Game = (textures, __init) => {
     // 用场景的 update 和 draw，加一层抽象增加灵活性
     g.update = () => {
         g.scene.update()
-     }
+    }
+
+    g.clearCanvas = () => {
+        g.context.clearRect(0, 0, g.canvas.width, g.canvas.height)
+    }
+
     g.draw = () => {
         g.scene.draw()
     }
@@ -174,7 +179,7 @@ const Game = (textures, __init) => {
         }
 
         // 清空画布
-        g.context.clearRect(0, 0, g.canvas.width, g.canvas.height)
+        g.clearCanvas()
 
         // 把要画的东西都画出来
         g.draw()
