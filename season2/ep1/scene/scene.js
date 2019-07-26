@@ -1,7 +1,7 @@
 class Scene {
     constructor(game) {
         this.game = game
-        this.elemenets = []
+        this.init()
     }
 
     static new(game) {
@@ -10,7 +10,12 @@ class Scene {
 
     static instance(game) {
         this.i = this.i || new this(game)
+        this.i.init()
         return this.i
+    }
+
+    init() {
+        this.elements = []
     }
 
     clearElements() {
@@ -18,7 +23,7 @@ class Scene {
     }
 
     addElement(e) {
-        this.elemenets.push(e)
+        this.elements.push(e)
     }
 
     // purposefully empty currently
@@ -27,7 +32,8 @@ class Scene {
     }
 
     draw() {
-        for (const e of this.elemenets) {
+        for (let i = 0; i < this.elements.length; i++) {
+            const e = this.elements[i];
             this.game.drawElement(e)
         }
     }

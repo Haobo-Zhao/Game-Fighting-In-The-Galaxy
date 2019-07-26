@@ -1,6 +1,7 @@
 // 入口函数，每一个程序都应该有且只有一个入口函数
 const __main = () => {
     const textures = {
+        bg: './image/space.png',
         player: './image/player.png',
     }
 
