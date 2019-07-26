@@ -1,4 +1,4 @@
-const Game = (images, __init) => {
+const Game = (textures, __init) => {
     const canvas = el('#id-canvas')
     const context = canvas.getContext('2d')
 
@@ -13,7 +13,8 @@ const Game = (images, __init) => {
     g.fps = 50
     g.scene = {}
 
-    g.images = {}
+    // 是 HTML 的 <img> 元素
+    g.textures = {}
     g.keydowns = {}
     g.actions = {}
 
@@ -33,58 +34,58 @@ const Game = (images, __init) => {
         g.actions[key] = action
     }
 
-    g.enableDebugMode = (isEnabled) => {
-        if (!isEnabled) {
-            return
-        }
-        g.debugMode = true
+    // g.enableDebugMode = (isEnabled) => {
+    //     if (!isEnabled) {
+    //         return
+    //     }
+    //     g.debugMode = true
 
-        const fpsInput = el('#id-input-fps')
-        const fpsText = el('#id-text-fps')
-        // const logText = el('#id-text-log')
+    //     const fpsInput = el('#id-input-fps')
+    //     const fpsText = el('#id-text-fps')
+    //     // const logText = el('#id-text-log')
 
-        // log = function() {
-        //     let line = ''
-        //     for (const arg of arguments) {
-        //         line += arg
-        //     }
-        //     logText.innerText = `${line}\n${logText.value}`
-        // }
+    //     // log = function() {
+    //     //     let line = ''
+    //     //     for (const arg of arguments) {
+    //     //         line += arg
+    //     //     }
+    //     //     logText.innerText = `${line}\n${logText.value}`
+    //     // }
 
-        fpsInput.removeAttribute('hidden')
-        // logText.removeAttribute('hidden')
+    //     fpsInput.removeAttribute('hidden')
+    //     // logText.removeAttribute('hidden')
 
-        fpsInput.addEventListener('input', (event) => {
-            const fps = event.target.value
-            g.fps = Number(fps)
-            fpsText.innerText = fps
-        })
+    //     fpsInput.addEventListener('input', (event) => {
+    //         const fps = event.target.value
+    //         g.fps = Number(fps)
+    //         fpsText.innerText = fps
+    //     })
 
-        // 暂停 和 加载关卡 是按下就触发，不需要一直触发，所以不是用注册的办法注册进来，为了方便省事直接 hard code 在这
-        window.addEventListener('keydown', (event) => {
-            const k = event.key
-            if (k === 'p') {
-                g.paused = !g.paused
-            } else if (k !== ' ' && !isNaN(Number(k))) { // Numer(' ') is 0, so get rid of it
-                let level = Number(k)
-                // default level to 1 if assigned an inappropriate number
-                if (level < 1 || level > window.levels.length) {
-                    level = 1
-                }
-                window.bricks = g.loadLevel(level)
-            }
-        })
-    }
+    //     // 暂停 和 加载关卡 是按下就触发，不需要一直触发，所以不是用注册的办法注册进来，为了方便省事直接 hard code 在这
+    //     window.addEventListener('keydown', (event) => {
+    //         const k = event.key
+    //         if (k === 'p') {
+    //             g.paused = !g.paused
+    //         } else if (k !== ' ' && !isNaN(Number(k))) { // Numer(' ') is 0, so get rid of it
+    //             let level = Number(k)
+    //             // default level to 1 if assigned an inappropriate number
+    //             if (level < 1 || level > window.levels.length) {
+    //                 level = 1
+    //             }
+    //             window.bricks = g.loadLevel(level)
+    //         }
+    //     })
+    // }
 
-    g.loadLevel = (level) => {
-        level -= 1
-        const bricks = []
-        for (const pos of window.levels[level]) {
-            const b = Brick(g, pos[0], pos[1])
-            bricks.push(b)
-        }
-        return bricks
-    }
+    // g.loadLevel = (level) => {
+    //     level -= 1
+    //     const bricks = []
+    //     for (const pos of window.levels[level]) {
+    //         const b = Brick(g, pos[0], pos[1])
+    //         bricks.push(b)
+    //     }
+    //     return bricks
+    // }
 
     // 按键的交互逻辑
     window.addEventListener('keydown', (event) => {
@@ -94,56 +95,56 @@ const Game = (images, __init) => {
         g.keydowns[event.key] = false
     })
 
-    g.createElement = (nameOfImage, x, y) => {
-        const ele = {}
+    // g.createElement = (nameOfImage, x, y) => {
+    //     const ele = {}
 
-        ele.image = g.images[nameOfImage]
-        ele.x = x
-        ele.y = y
-        ele.w = ele.image.width
-        ele.h = ele.image.height
+    //     ele.image = g.images[nameOfImage]
+    //     ele.x = x
+    //     ele.y = y
+    //     ele.w = ele.image.width
+    //     ele.h = ele.image.height
 
-        return ele
-    }
+    //     return ele
+    // }
 
     // 画一个游戏元素的时候
     // 参数 ele 的形状：
     // {
-    //     image: 可以是一个 HTML <img> 元素,
+    //     ele: ele 里面有一个 texture 属性，是一个 HTML <img> 元素
     //     x: 100,
     //     y: 200,
     // }
     g.drawElement = (ele) => {
-        g.context.drawImage(ele.image, ele.x, ele.y)
+        g.context.drawImage(ele.texture, ele.x, ele.y)
     }
 
     g.drawText = (text, x, y) => {
         g.context.fillText(text, x, y)
     }
 
-    g.drawScore = () => {
-        g.drawText(`Score: ${g.score}`, 20, 290)
-    }
+    // g.drawScore = () => {
+    //     g.drawText(`Score: ${g.score}`, 20, 290)
+    // }
 
-    g.addScore = (addend) => {
-        g.score += addend
-    }
+    // g.addScore = (addend) => {
+    //     g.score += addend
+    // }
 
     g.loads = () => {
-        for (let name in images) {
-            const path = images[name]
+        for (let name in textures) {
+            const path = textures[name]
             const image = imageFromPath(path)
             image.onload = () => {
-                g.images[name] = image
-                if (Object.keys(g.images).length === Object.keys(images).length) {
+                g.textures[name] = image
+                if (Object.keys(g.textures).length === Object.keys(textures).length) {
                     g.__start()
                 }
             }
         }
     }
 
-    g.setFont = (style) => {
-        g.context.font = style
+    g.textureByName = (name) => {
+        return g.textures[name]
     }
 
     // 用场景的 update 和 draw，加一层抽象增加灵活性
@@ -156,6 +157,10 @@ const Game = (images, __init) => {
 
     g.setScene = (scene) => {
         g.scene = scene
+    }
+
+    g.setFont = (style) => {
+        g.context.font = style
     }
 
     // 游戏的主要逻辑都在这里
