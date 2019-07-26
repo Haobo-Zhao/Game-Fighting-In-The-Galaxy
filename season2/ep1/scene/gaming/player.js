@@ -6,7 +6,7 @@ class Player extends Element {
 
     static new(game, x, y) {
         this.i = this.i || new this(game, x, y)
-        return i
+        return this.i
     }
 
     init() {
@@ -17,12 +17,12 @@ class Player extends Element {
 
     moveByX(dx) {
         dx = dx || 0
-        this.x += dx
+        this.x = clamp(this.x + dx, 0, 400 - this.w)
     }
 
     moveByY(dy) {
         dy = dy || 0
-        this.y += dy
+        this.y = clamp(this.y + dy, 0, 300 - this.h)
     }
 
     moveUp() {
