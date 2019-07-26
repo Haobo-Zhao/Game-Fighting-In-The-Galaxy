@@ -1,13 +1,17 @@
 class SceneGaming extends Scene {
     constructor(game) {
         super(game)
-        this.init()
         this.__bindEvents()
     }
 
     init() {
-        this.clearElements()
-        this.player = Player.new(this.game, 'player', 100, 200)
+        super.init()
+
+        const g = this.game
+        this.bg = Element.new(g, 'bg', 0, 0)
+        this.player = Player.new(g, 100, 200)
+        log('player', this.player)
+        this.addElement(this.bg)
         this.addElement(this.player)
     }
 
