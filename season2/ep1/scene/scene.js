@@ -13,17 +13,19 @@ class Scene {
         return this.i
     }
 
+    clearElements() {
+        this.elements = []
+    }
+
     addElement(e) {
         this.elemenets.push(e)
     }
 
-    // purposefully default update method to be empty
+    // purposefully empty currently
     update() {
-        for (const e of this.elemenets) {
-            e.update()
-        }
+
     }
-    // purposefully default draw method to be empty
+
     draw() {
         for (const e of this.elemenets) {
             this.game.drawElement(e)
