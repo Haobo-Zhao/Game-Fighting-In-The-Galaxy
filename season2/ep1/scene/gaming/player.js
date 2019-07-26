@@ -1,6 +1,8 @@
 class Player extends Element {
     constructor(game, x, y) {
         super(game, 'player', x, y)
+
+        this.init()
     }
 
     init() {

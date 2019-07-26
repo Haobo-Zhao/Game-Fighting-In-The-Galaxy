@@ -32,9 +32,10 @@ class Scene {
     }
 
     draw() {
+        const g = this.game
         for (let i = 0; i < this.elements.length; i++) {
             const e = this.elements[i];
-            this.game.drawElement(e)
+            g.drawElement(e)
         }
     }
 }
