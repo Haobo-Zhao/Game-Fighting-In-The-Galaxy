@@ -3,6 +3,9 @@ const __main = () => {
     const textures = {
         bg: './image/space.png',
         player: './image/player.png',
+        enemy1: './image/enemy1.png',
+        enemy2: './image/enemy2.png',
+        enemy3: './image/enemy3.png',
     }
 
     const game = Game(textures, (g) => {
