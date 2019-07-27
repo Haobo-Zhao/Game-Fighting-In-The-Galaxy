@@ -1,7 +1,7 @@
 const el = e => document.querySelector(e)
 
 // 调试的时候，可以直接暴露一个全局变量出来，然后 log 出来， 就可以了
-let log = console.log.bind(console)
+const log = console.log.bind(console)
 
 const clamp = (val, min, max) => {
     if (val < min) {
@@ -28,4 +28,10 @@ const createElement = (pathOfImage, x, y) => {
     ele.y = y
 
     return ele
+}
+
+// 闭区间
+const randomBetween = (start, end) => {
+    const r = start + Math.random() * (end + 1 - start)
+    return Math.floor(r)
 }
