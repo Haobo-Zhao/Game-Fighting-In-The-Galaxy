@@ -1,33 +1,26 @@
 class SceneGaming extends Scene {
     constructor(game) {
-        log('2 SceneGaming constructor()')
         super(game)
         this.__bindEvents()
-        log('10 finish binding events')
     }
 
     init() {
-        log('5 start calling init() on SceneGmaing\'s instance')
         super.init()
 
         const g = this.game
-        log('7 create instances for bg and player')
         this.bg = Element.new(g, 'bg', 0, 0)
         this.player = Player.new(g, 300, 900)
-        window.p = this.player
+
         this.addElement(this.bg)
         this.addElement(this.player)
     }
 
     __bindEvents() {
-        log('8 bind event 1', window.p == this.player)
         // 把事件注册进 game 里面
         const g = this.game
         const p = this.player
-        log('9 bind event 2', window.p == p)
+
         g.registerAction('w', () => {
-            log(window.p == this.player)
-            log(window.p == p)
             p.moveUp()
         })
         g.registerAction('s', () => {

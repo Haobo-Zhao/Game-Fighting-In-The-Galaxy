@@ -9,7 +9,6 @@ class Element {
 
     // static  函数的 this， 是绑定在调用 static 函数的类，身上的
     static new(game, name, x, y) {
-        log('Element.new()')
         return new this(game, name, x, y)
     }
 }

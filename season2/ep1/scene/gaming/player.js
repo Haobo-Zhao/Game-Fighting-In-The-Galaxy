@@ -6,7 +6,6 @@ class Player extends Element {
     }
 
     init(x, y) {
-        log('player.init()')
         this.x = x || 100
         this.y = y || 200
         this.speed = 10

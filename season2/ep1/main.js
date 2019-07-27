@@ -6,7 +6,6 @@ const __main = () => {
     }
 
     const game = Game(textures, (g) => {
-        log('0 call SceneGaming.instance()')
         const s = SceneGaming.instance(g)
         g.setScene(s)
         g.setFont('20px consolas')
