@@ -7,7 +7,7 @@ const Game = (textures, __init) => {
     g.canvas = canvas
     g.context = context
 
-    g.debugMode = false
+    g.debugMode = true
     g.paused = false
     g.score = 0
     g.fps = 50

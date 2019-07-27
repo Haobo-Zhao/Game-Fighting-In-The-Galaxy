@@ -8,9 +8,16 @@ class Bullet extends Element {
         this.x = x || 100
         this.y = y || 100
         this.speed = 10
+        if (this.game.debugMode) {
+            this.debug()
+        }
     }
 
     update() {
         this.y -= this.speed
+    }
+
+    debug() {
+        this.speed = config.bullet_speed
     }
 }

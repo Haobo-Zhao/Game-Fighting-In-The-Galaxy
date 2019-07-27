@@ -28,18 +28,18 @@ class Player extends Element {
     }
 
     moveUp() {
-        this.y -= this.speed
+        this.y = clamp(this.y - this.speed, 0, 1000)
     }
 
     moveDown() {
-        this.y += this.speed
+        this.y = clamp(this.y + this.speed, 0, 1000)
     }
 
     moveLeft() {
-        this.x -= this.speed
+        this.x = clamp(this.x - this.speed, 0, 800)
     }
 
     moveRight() {
-        this.x += this.speed
+        this.x = clamp(this.x + this.speed, 0, 800)
     }
 }
