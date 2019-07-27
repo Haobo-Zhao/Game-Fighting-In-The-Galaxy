@@ -5,16 +5,11 @@ class Element {
         this.y = y || 0
         this.w = this.texture.width
         this.h = this.texture.height
-        this.init()
     }
 
     // static  函数的 this， 是绑定在调用 static 函数的类，身上的
     static new(game, name, x, y) {
+        log('Element.new()')
         return new this(game, name, x, y)
-    }
-
-    // purposefully empty currently
-    init() {
-
     }
 }

@@ -2,13 +2,13 @@ class Player extends Element {
     constructor(game, x, y) {
         super(game, 'player', x, y)
 
-        this.init()
+        this.init(x, y)
     }
 
-    init() {
-        super.init()
-        this.x = 100
-        this.y = 200
+    init(x, y) {
+        log('player.init()')
+        this.x = x || 100
+        this.y = y || 200
         this.speed = 10
     }
 
