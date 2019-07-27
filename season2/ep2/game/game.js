@@ -1,5 +1,5 @@
 const Game = (textures, __init) => {
-    const canvas = el('#id-canvas')
+    const canvas = ele('#id-canvas')
     const context = canvas.getContext('2d')
 
     const g = {}
