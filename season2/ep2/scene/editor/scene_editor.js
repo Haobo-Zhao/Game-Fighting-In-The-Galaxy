@@ -81,16 +81,16 @@ class SceneEditor extends Scene {
         this.game.drawText('press f to save and finish editing', 20, 290)
 
         const c = this.game.context
-        c.beginPath();
-        c.moveTo(0, 220);
-        c.lineTo(400, 220);
-        c.stroke();
+        c.beginPath()
+        c.moveTo(0, 220)
+        c.lineTo(400, 220)
+        c.stroke()
     }
 
     drawShadowBrick() {
         // draw current shadow brick
         this.game.context.save()
-        this.game.context.globalAlpha = 0.4;
+        this.game.context.globalAlpha = 0.4
         this.b && this.game.drawElement(this.b)
         this.game.context.restore()
     }
