@@ -24,7 +24,7 @@ class Scene {
     }
 
     addElement(e) {
-        // 元素拿到场景
+        // 让元素拿到场景
         e.scene = this
         this.elements.push(e)
     }

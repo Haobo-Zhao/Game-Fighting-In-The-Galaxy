@@ -7,7 +7,7 @@ class Enemy extends Element {
     }
 
     init() {
-        this.x = randomBetween(0, 700)
+        this.x = randomBetween(100, 700)
         this.y = -randomBetween(100, 200)
         this.speed = randomBetween(5, 10)
     }

@@ -5,7 +5,7 @@ class Galaxy extends Element {
     }
 
     init() {
-        this.x = randomBetween(-600, 600)
+        this.x = randomBetween(-1000, 600)
         this.y = -randomBetween(900, 1000)
         this.speed = randomBetween(1, 3)
     }
