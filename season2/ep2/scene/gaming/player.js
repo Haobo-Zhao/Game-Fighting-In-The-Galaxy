@@ -11,29 +11,26 @@ class Player extends Element {
         this.speed = 10
     }
 
-    moveByX(dx) {
-        dx = dx || 0
-        this.x = clamp(this.x + dx, 0, 800 - this.w)
-    }
-
-    moveByY(dy) {
-        dy = dy || 0
-        this.y = clamp(this.y + dy, 0, 1000 - this.h)
+    fire() {
+        const x = this.x + this.w / 2
+        const y = this.y - 2
+        const b = Bullet.new(this.game, x, y)
+        this.scene.addElement(b)
     }
 
     moveUp() {
-        this.moveByY(-this.speed)
+        this.y -= this.speed
     }
 
     moveDown() {
-        this.moveByY(this.speed)
+        this.y += this.speed
     }
 
     moveLeft() {
-        this.moveByX(-this.speed)
+        this.x -= this.speed
     }
 
     moveRight() {
-        this.moveByX(this.speed)
+        this.x += this.speed
     }
 }

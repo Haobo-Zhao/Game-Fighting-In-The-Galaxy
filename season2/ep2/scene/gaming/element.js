@@ -1,5 +1,6 @@
 class Element {
     constructor(game, name, x, y) {
+        this.game = game
         this.texture = game.textureByName(name)
         this.x = x || 0
         this.y = y || 0

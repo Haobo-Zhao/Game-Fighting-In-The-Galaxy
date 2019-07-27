@@ -8,13 +8,21 @@ class SceneGaming extends Scene {
         super.init()
 
         const g = this.game
+
         this.bg = Element.new(g, 'bg', 0, 0)
+        this.galaxy = Galaxy.new(g)
         this.player = Player.new(g, 300, 900)
         this.addElement(this.bg)
+        this.addElement(this.galaxy)
+        this.numberOfEnemies = 12
+        this.addEnemies()
         this.addElement(this.player)
+    }
+
+    addEnemies() {
+        const g = this.game
 
         this.enemies = []
-        this.numberOfEnemies = 10
         for (let i = 0; i < this.numberOfEnemies; i++) {
             const e = Enemy.new(g)
             this.enemies.push(e)
@@ -38,6 +46,9 @@ class SceneGaming extends Scene {
         })
         g.registerAction('d', () => {
             p.moveRight()
+        })
+        g.registerAction(' ', () => {
+            p.fire()
         })
     }
 
