@@ -20,8 +20,11 @@
 
 <body>
     <div>
-        <canvas id="id-canvas" width="800" height="1000"></canvas>
+        <canvas id="id-canvas" width="800" height="900"></canvas>
     </div>
+
+    <!-- config panel -->
+
     <!-- <div>
         <input id="id-input-fps" type="range" value="50" min="1" max="100" hidden>
         <span>fps: </span>
@@ -30,6 +33,35 @@
     <!-- <div>
         <textarea id="id-text-log" cols="40" rows="20" hidden></textarea>
     </div> -->
+
+    <div>
+        <div>
+            <input type="range" class="config-input-slider" data-item="config.fps" data-name="fps" value="50" min="1"
+                max="100">
+            <span>fps: 50</span>
+        </div>
+        <div>
+            <input type="range" class="config-input-slider" data-item="config.player_speed" data-name="player speed"
+                value="15" min="1" max="30">
+            <span>player speed: 15</span>
+        </div>
+        <div>
+            <input type="range" class="config-input-slider" data-item="config.bullet_speed" data-name="bullet speed"
+                value="5" min="1" max="10">
+            <span>bullet speed: 5</span>
+        </div>
+        <div>
+                <input type="range" class="config-input-slider" data-item="config.cooldown" data-name="cooldown" value="5" min="1"
+                    max="10">
+                <span>cooldown: 5</span>
+            </div>
+        <div>
+            <input type="range" class="config-input-slider" data-item="config.galaxy_speed" data-name="galaxy speed" value="1" min="-10"
+                max="10">
+            <span>galaxy speed: 1</span>
+        </div>
+    </div>
+
 </body>
 <!-- game related files -->
 <script src="./game/utils.js"></script>
@@ -48,6 +80,7 @@
 <script src="./scene/gaming/enemy.js"></script>
 <script src="./scene/gaming/bullet.js"></script>
 <script src="./scene/gaming/galaxy.js"></script>
+<script src="./scene/gaming/config.js"></script>
 <script src="./scene/gaming/scene_gaming.js"></script>
 
 <script src="./scene/game_over/scene_game_over.js"></script>

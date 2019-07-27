@@ -186,7 +186,7 @@ const Game = (textures, __init) => {
 
         window.setTimeout(() => {
             g.runloop()
-        }, 1000 / g.fps)
+        }, 1000 / config.fps)
     }
 
     g.__start = () => {

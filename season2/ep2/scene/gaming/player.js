@@ -27,19 +27,24 @@ class Player extends Element {
         this.cooldown = Math.max(0, this.cooldown - 1)
     }
 
+    debug() {
+        this.speed = config.player_speed
+        this.cooldown = config.cooldown
+    }
+
     moveUp() {
-        this.y = clamp(this.y - this.speed, 0, 1000)
+        this.y = clamp(this.y - this.speed, 0, 900 - this.h)
     }
 
     moveDown() {
-        this.y = clamp(this.y + this.speed, 0, 1000)
+        this.y = clamp(this.y + this.speed, 0, 900 - this.h)
     }
 
     moveLeft() {
-        this.x = clamp(this.x - this.speed, 0, 800)
+        this.x = clamp(this.x - this.speed, 0, 800 - this.w)
     }
 
     moveRight() {
-        this.x = clamp(this.x + this.speed, 0, 800)
+        this.x = clamp(this.x + this.speed, 0, 800 - this.w)
     }
 }

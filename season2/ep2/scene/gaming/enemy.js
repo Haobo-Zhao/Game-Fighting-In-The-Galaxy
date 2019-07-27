@@ -13,7 +13,7 @@ class Enemy extends Element {
     }
 
     update() {
-        if (this.y >= 1000) {
+        if (this.y >= 900) {
             this.init()
         }
         this.y += this.speed

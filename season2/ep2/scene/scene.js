@@ -31,6 +31,13 @@ class Scene {
 
     // purposefully empty currently
     update() {
+        if (this.game.debugMode) {
+            for (let i = 0; i < this.elements.length; i++) {
+                const e = this.elements[i]
+                e.debug && e.debug()
+            }
+        }
+
         for (let i = 0; i < this.elements.length; i++) {
             const e = this.elements[i]
             e.update && e.update()

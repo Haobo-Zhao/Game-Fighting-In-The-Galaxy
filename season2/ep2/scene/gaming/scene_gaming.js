@@ -11,7 +11,7 @@ class SceneGaming extends Scene {
 
         this.bg = Element.new(g, 'bg', 0, 0)
         this.galaxy = Galaxy.new(g)
-        this.player = Player.new(g, 300, 900)
+        this.player = Player.new(g, 300, 800)
         this.addElement(this.bg)
         this.addElement(this.galaxy)
         this.numberOfEnemies = 12
