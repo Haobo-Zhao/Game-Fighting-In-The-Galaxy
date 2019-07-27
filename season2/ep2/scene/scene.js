@@ -29,7 +29,10 @@ class Scene {
 
     // purposefully empty currently
     update() {
-
+        for (let i = 0; i < this.elements.length; i++) {
+            const e = this.elements[i]
+            e.update && e.update()
+        }
     }
 
     draw() {
