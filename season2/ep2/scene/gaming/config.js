@@ -1,9 +1,9 @@
 const config = {
     fps: 50,
-    player_speed: 10,
-    bullet_speed: 3,
-    cooldown: 3,
-    galaxy_speed: 3,
+    player_speed: 15,
+    bullet_speed: 10,
+    cooldown: 5,
+    galaxy_speed: 1,
 }
 
 bindAll('.config-input-slider', 'input', (event) => {

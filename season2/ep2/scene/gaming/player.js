@@ -8,7 +8,7 @@ class Player extends Element {
     init(x, y) {
         this.x = x || 100
         this.y = y || 200
-        this.speed = 10
+        this.speed = 15
         this.cooldown = 0
     }
 
@@ -19,7 +19,10 @@ class Player extends Element {
             const y = this.y - 5
             const b = Bullet.new(this.game, x, y)
             this.scene.addElement(b)
-            this.cooldown = 3
+            this.cooldown = 5
+            if (this.game.debugMode) {
+                this.cooldown = config.cooldown
+            }
         }
     }
 
@@ -29,7 +32,6 @@ class Player extends Element {
 
     debug() {
         this.speed = config.player_speed
-        this.cooldown = config.cooldown
     }
 
     moveUp() {
