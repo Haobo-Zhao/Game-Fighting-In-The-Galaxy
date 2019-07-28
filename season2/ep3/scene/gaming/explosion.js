@@ -12,6 +12,18 @@ class Explosion extends Element {
         return new this(game, x, y)
     }
 
+    update() {
+        this.leftFrames -= 1
+        if (this.leftFrames == 0) {
+            this.leftFrames = this.framesToSwitch
+            this.dx += 896 / 14
+            this.dx %= 896 + 64
+            // if (this.dx >= 896) {
+            // this.alive = false
+            // }
+        }
+    }
+
     draw() {
         if (!this.alive) {
             return
@@ -22,17 +34,5 @@ class Explosion extends Element {
             this.dx, 0, h, h,
             this.x, this.y, h, h
         )
-    }
-
-    update() {
-        this.leftFrames -= 1
-        if (this.leftFrames == 0) {
-            this.leftFrames = this.framesToSwitch
-            this.dx += 896 / 14
-            this.dx %= 896 + 64
-            // if (this.dx >= 896) {
-                // this.alive = false
-            // }
-        }
     }
 }
