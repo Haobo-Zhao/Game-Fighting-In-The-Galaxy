@@ -6,6 +6,7 @@ class Element {
         this.y = y || 0
         this.w = this.texture.width
         this.h = this.texture.height
+        this.alive = true
     }
 
     // static  函数的 this， 是绑定在调用 static 函数的类，身上的

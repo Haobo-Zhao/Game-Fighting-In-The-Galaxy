@@ -42,6 +42,8 @@ class Scene {
             const e = this.elements[i]
             e.update && e.update()
         }
+
+        this.elements = this.elements.filter(e => e.alive)
     }
 
     draw() {
