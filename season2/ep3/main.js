@@ -5,13 +5,14 @@ const __main = () => {
         galaxy: './image/galaxy.png',
         player: './image/player.png',
         bullet: './image/bullet.png',
+        explosion: './image/explosion.png',
         enemy1: './image/enemy1.png',
         enemy2: './image/enemy2.png',
         enemy3: './image/enemy3.png',
     }
 
     const game = Game(textures, (g) => {
-        const s = SceneGaming.instance(g)
+        const s = SceneTitle.instance(g)
         g.setScene(s)
         g.setFont('20px consolas')
     })

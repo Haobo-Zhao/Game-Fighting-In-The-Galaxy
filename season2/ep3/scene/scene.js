@@ -48,7 +48,7 @@ class Scene {
         const g = this.game
         for (let i = 0; i < this.elements.length; i++) {
             const e = this.elements[i]
-            g.drawElement(e)
+            e.draw()
         }
     }
 }

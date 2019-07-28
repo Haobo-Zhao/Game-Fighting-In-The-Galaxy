@@ -12,4 +12,8 @@ class Element {
     static new(game, name, x, y) {
         return new this(game, name, x, y)
     }
+
+    draw() {
+        this.game.drawElement(this)
+    }
 }
