@@ -5,7 +5,7 @@ class Explosion extends Element {
         this.alive = true
         this.dx = 0
         this.framesToSwitch = 2
-        this.leftFrames = this.framesToSwitch
+        this.leftFramesToSwitch = this.framesToSwitch
     }
 
     static new(game, x, y) {
@@ -13,9 +13,9 @@ class Explosion extends Element {
     }
 
     update() {
-        this.leftFrames -= 1
-        if (this.leftFrames == 0) {
-            this.leftFrames = this.framesToSwitch
+        this.leftFramesToSwitch -= 1
+        if (this.leftFramesToSwitch == 0) {
+            this.leftFramesToSwitch = this.framesToSwitch
             this.dx += 896 / 14
             this.dx %= 896 + 64
             // if (this.dx >= 896) {
