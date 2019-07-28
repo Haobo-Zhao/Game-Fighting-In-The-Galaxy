@@ -1,5 +1,5 @@
 class Galaxy extends Element {
-    constructor(game, x, y) {
+    constructor(game) {
         super(game, 'galaxy')
         this.init()
     }

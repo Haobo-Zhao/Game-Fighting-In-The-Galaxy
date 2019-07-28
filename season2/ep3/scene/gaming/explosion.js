@@ -29,9 +29,10 @@ class Explosion extends Element {
         if (this.leftFrames == 0) {
             this.leftFrames = this.framesToSwitch
             this.dx += 896 / 14
-            if (this.dx >= 896) {
-                this.alive = false
-            }
+            this.dx %= 896
+            // if (this.dx >= 896) {
+                // this.alive = false
+            // }
         }
     }
 }

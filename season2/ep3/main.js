@@ -5,6 +5,7 @@ const __main = () => {
         galaxy: './image/galaxy.png',
         player: './image/player.png',
         bullet: './image/bullet.png',
+        particle: './image/particle.png',
         explosion: './image/explosion.png',
         enemy1: './image/enemy1.png',
         enemy2: './image/enemy2.png',

@@ -9,8 +9,10 @@ class SceneTitle extends Scene {
     init() {
         super.init()
         const bg = Element.new(this.game, 'bg', 0, 0)
+        const particles = ParticleSystem.new(this.game, 500, 100)
         const explosion = Explosion.new(this.game, 200, 70)
         this.addElement(bg)
+        this.addElement(particles)
         this.addElement(explosion)
 
         // assign a name to the instance of the scene for identification
