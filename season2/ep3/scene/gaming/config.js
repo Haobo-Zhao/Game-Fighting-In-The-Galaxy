@@ -7,9 +7,9 @@ const config = {
 }
 
 bindAll('.config-input-slider', 'input', (event) => {
+    const t = event.target
     const item = t.dataset.item
     const name = t.dataset.name
-    const t = event.target
     const v = t.value
     eval(`${item} = ${v}`)
 
